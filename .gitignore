@@ -1,0 +1,24 @@
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Streamlit
+.streamlit/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Large generated model files (optional — remove these lines if you
+# want to commit trained models so the app works immediately after clone)
+# models/*.pkl
