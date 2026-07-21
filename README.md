@@ -1,6 +1,7 @@
-3# 🎓 AI-Driven Student Performance Prediction System
+# 🎓 AI-Driven Student Performance Prediction System
 
 Predicts whether a student is likely to **pass or is at risk of failing**, using machine learning trained on real academic, behavioral, and demographic data — with a live Streamlit app and per-student explainability powered by SHAP.
+
 ---
 
 ## Overview
@@ -18,12 +19,12 @@ The app lets you pick which situation applies and uses the right model for it.
 
 ---
 
-
 ## Why two models instead of one?
 
 A single model trained on current-term grades essentially learns "if 2nd term score ≥ 10, predict pass" and mostly ignores everything else — because grades genuinely are that predictive of a student's next grade. That's a real, documented property of this dataset, not a bug.
 
 Rather than hide that, this project:
+
 - Trains an **early-warning model without grades**, so it's forced to rely on attendance/behavior — genuinely useful before grades exist.
 - Trains a **grade-aware model with everything**, and uses **SHAP** to show, per student, exactly how many grade points *each individual factor* contributed to that prediction — so the influence of non-grade factors is visible and honest instead of buried.
 
@@ -37,6 +38,16 @@ Rather than hide that, this project:
 - 🖥️ **Interactive Streamlit app** — clean, tabbed form; no raw dataset jargon
 - 📦 **Fully reproducible pipeline** — from raw CSV to trained model to live app
 
+---
+
+## Screenshots
+
+![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\Student Performance Predictor_page-0001.jpg)
+
+![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\2_page-0001.jpg)
+
+![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\2_page-0002.jpg)
+---
 
 ## Project Structure
 
@@ -57,6 +68,8 @@ student_performance_project/
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## How It Works
 
@@ -82,53 +95,52 @@ Cortez, P. (2008). *Student Performance* [Dataset]. UCI Machine Learning Reposit
 - Deploy publicly via Streamlit Community Cloud
 - Add a teacher-facing dashboard view for class-wide trends
 
-========================================================================
-HOW TO ACCESS / USE THE APP
-========================================================================
+---
 
-1. INSTALL DEPENDENCIES (one-time setup)
------------------------------------------
+## How to Access / Use the App
+
+### 1. Install dependencies (one-time setup)
+
 Open a terminal in the project folder and run:
 
-    pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
+### 2. Train the models (one-time setup)
 
-2. TRAIN THE MODELS (one-time setup)
--------------------------------------
-Run these two commands, in order, from the project ROOT folder:
+Run these two commands, in order, from the project **root** folder:
 
-    python src/train_model.py
-    python src/train_regression_model.py
+```bash
+python src/train_model.py
+python src/train_regression_model.py
+```
 
-This creates the trained model files the app needs. You only need to
-do this once (or again if you change the code/data).
+This creates the trained model files the app needs. You only need to do this once (or again if you change the code/data).
 
+### 3. Launch the app
 
-3. LAUNCH THE APP
-------------------
-    streamlit run app/app.py
+```bash
+streamlit run app/app.py
+```
 
-If you get "'streamlit' is not recognized", use this instead:
+If you get `'streamlit' is not recognized`, use this instead:
 
-    python -m streamlit run app/app.py
+```bash
+python -m streamlit run app/app.py
+```
 
 This will automatically open the app in your browser at:
 
-    http://localhost:8501
+```
+http://localhost:8501
+```
 
+### 4. Using the app
 
-4. USING THE APP
-------------------
-*   First, tell it whether the student's current test scores are
-    already known ("Yes" or "No") -- this decides which model is used.
-*   Fill in the Academic, Lifestyle & Family, and Optional tabs.
-*   Click "Predict Performance."
-*   You'll get a Pass / At-Risk result, a confidence percentage, and
-    (if scores were provided) a breakdown showing exactly which
-    factors pushed the prediction up or down.
+- First, tell it whether the student's current test scores are already known ("Yes" or "No") — this decides which model is used.
+- Fill in the **Academic**, **Lifestyle & Family**, and **Optional** tabs.
+- Click **Predict Performance**.
+- You'll get a Pass / At-Risk result, a confidence percentage, and (if scores were provided) a breakdown showing exactly which factors pushed the prediction up or down.
 
-Note: This app runs locally on your own machine -- there is no public
-website link. Anyone who wants to use it needs to clone this repo and
-run the steps above on their own computer.
-
-========================================================================
+> **Note:** This app runs locally on your own machine — there is no public website link. Anyone who wants to use it needs to clone this repo and run the steps above on their own computer.
