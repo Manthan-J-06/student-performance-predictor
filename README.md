@@ -42,11 +42,12 @@ Rather than hide that, this project:
 
 ## Screenshots
 
-![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\Student Performance Predictor_page-0001.jpg)
+![App input form](docs/screenshots/1.jpg)
 
-![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\2_page-0001.jpg)
+![App input form](docs/screenshots/2.jpg)
 
-![App input form](C:\Users\DELL\OneDrive\Desktop\Performance Prediction\student_performance_project\Student-Performance-Predictor\2_page-0002.jpg)
+![App input form](docs/screenshots/3.jpg)
+
 ---
 
 ## Project Structure
@@ -56,6 +57,11 @@ student_performance_project/
 ├── data/
 │   ├── student-mat.csv              # Math course dataset (395 students)
 │   └── student-por.csv              # Portuguese course dataset (649 students)
+├── docs/
+│   └── screenshots/
+│       ├── app-form.png
+│       ├── eda-charts.png
+│       └── prediction-shap.png
 ├── src/
 │   ├── preprocess.py                # Data loading, cleaning, encoding, splits
 │   ├── eda.py                       # Exploratory Data Analysis → outputs/
